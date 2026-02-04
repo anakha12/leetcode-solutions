@@ -6,11 +6,7 @@ var singleNumber = function(nums) {
     let count={};
     let result =[]
     for(let num of nums){
-        if(count[num] == undefined){
-            count[num]=1;
-        }else{
-            count[num]++
-        }
+        count[num] =(count[num] || 0)+1;
     }
    for(let key in count){
     if(count[key] ==1){
