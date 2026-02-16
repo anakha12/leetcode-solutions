@@ -9,17 +9,9 @@ var maxFreqSum = function(s) {
     let v="aeiou"
     for(let i=0;i<str.length;i++){
         if(v.includes(str[i])){
-            if(!countV[str[i]]){
-                countV[str[i]] = 1
-            }else{
-                countV[str[i]]++
-            }
+           countV[str[i]] = (countV[str[i]] || 0)+1
         }else{
-            if(!countC[str[i]]){
-                countC[str[i]] = 1
-            }else{
-                countC[str[i]]++
-            }
+            countC[str[i]] = (countC[str[i]] || 0)+1
         }
     }
     let largest=0;
