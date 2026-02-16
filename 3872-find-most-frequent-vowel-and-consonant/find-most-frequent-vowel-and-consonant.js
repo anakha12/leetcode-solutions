@@ -14,17 +14,7 @@ var maxFreqSum = function(s) {
             countC[str[i]] = (countC[str[i]] || 0)+1
         }
     }
-    let largest=0;
-    for(let char in countV){
-        if(countV[char] > largest){
-            largest=countV[char]
-        }
-    }
-    let lar=0;
-    for(let char in countC){
-        if(countC[char] > lar){
-            lar=countC[char]
-        }
-    }
-    return largest+lar
+    let largestV = Math.max(...Object.values(countV),0);
+    let largestC = Math.max(...Object.values(countC),0);
+    return largestV+largestC
 };
