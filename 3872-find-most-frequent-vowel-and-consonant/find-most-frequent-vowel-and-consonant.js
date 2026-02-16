@@ -5,9 +5,9 @@
 var maxFreqSum = function(s) {
     let countV={}
     let countC={}
-    let v="aeiou"
+    let v= new Set("aeiou")
     for(let char of s){
-        if(v.includes(char)){
+        if(v.has(char)){
            countV[char] = (countV[char] || 0)+1
         }else{
             countC[char] = (countC[char] || 0)+1
