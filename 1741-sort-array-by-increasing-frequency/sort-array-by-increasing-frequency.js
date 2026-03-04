@@ -3,20 +3,19 @@
  * @return {number[]}
  */
 var frequencySort = function(nums) {
-    const freq = new Map();
-    
-    // Step 1: Count frequency
-    for (let num of nums) {
-        freq.set(num, (freq.get(num) || 0) + 1);
-    }
-    
-    // Step 2: Custom sort
-    nums.sort((a, b) => {
-        if (freq.get(a) === freq.get(b)) {
-            return b - a; // Same frequency → descending number
+    let frquency={}
+    for(let num of nums){
+        if(frquency[num]==undefined){
+            frquency[num]=1;
+        }else{
+            frquency[num]++
         }
-        return freq.get(a) - freq.get(b); // Increasing frequency
-    });
-    
-    return nums;
+    }
+    nums.sort((a,b)=>{
+        if(frquency[a] == frquency[b]){
+            return b-a
+        }
+        return frquency[a]-frquency[b]
+    })
+   return nums
 };
