@@ -4,7 +4,7 @@
  */
 var mySqrt = function(x,left=0,right=Math.floor(x/2)) {
     if(x<2) return x;
-    let mid=Math.floor((left+right)/2);
+    let mid=left+Math.floor((right-left)/2);
     if(left>right) return right
     if(mid*mid==x) return mid;
     if(mid*mid<x){
