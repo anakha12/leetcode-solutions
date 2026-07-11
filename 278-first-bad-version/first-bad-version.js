@@ -21,11 +21,11 @@ var solution = function(isBadVersion) {
         let left=1;
         let right=n;
         let mid=0;
-    while(left<right){
+    while(left<=right){
         mid=left+Math.floor((right-left)/2);
         
         if(isBadVersion(mid)){
-            right=mid;
+            right=mid-1;
         }else{
             left=mid+1
         } 
