@@ -15,8 +15,8 @@ var isSymmetric = function(root) {
     while(queue.length){
         let q1=queue.shift();
         let q2=queue.shift();
-        if(q1==null && q2==null) continue
-        if(q1==null || q2==null) return false
+        if(!q1 && !q2) continue
+        if(!q1|| !q2) return false
         if(q1.val !==q2.val) return false
         queue.push(q1.left,q2.right);
         queue.push(q1.right,q2.left);
