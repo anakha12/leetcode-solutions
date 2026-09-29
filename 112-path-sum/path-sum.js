@@ -15,12 +15,12 @@ var hasPathSum = function(root, targetSum) {
     if(!root) return 0;
     let ans=false;
     function traverse(cur,curSum){
-        let sum=curSum+cur.val;
+        curSum+=cur.val;
         if(!cur.left && !cur.right){
-            if(sum==targetSum) ans=ans|| true;
+            if(curSum==targetSum) ans=ans|| true;
         }
-        cur.left && traverse(cur.left,sum);
-        cur.right && traverse(cur.right,sum);
+        cur.left && traverse(cur.left,curSum);
+        cur.right && traverse(cur.right,curSum);
 
     }
     traverse(root,0);
