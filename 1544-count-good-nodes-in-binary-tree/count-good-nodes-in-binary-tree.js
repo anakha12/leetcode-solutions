@@ -18,8 +18,8 @@ var goodNodes = function(root) {
             maxSeenSoFar = cur.val;
             count++;
         }
-        traverse(cur.left,maxSeenSoFar);
-        traverse(cur.right,maxSeenSoFar);
+        cur.left && traverse(cur.left,maxSeenSoFar);
+        cur .right && traverse(cur.right,maxSeenSoFar);
     }
     traverse(root,root.val)
     return count
