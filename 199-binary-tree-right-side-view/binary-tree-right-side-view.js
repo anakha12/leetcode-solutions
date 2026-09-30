@@ -11,18 +11,13 @@
  * @return {number[]}
  */
 var rightSideView = function(root) {
-    if(!root) return [];
-    let q=[root];
     let ans=[];
-    let level=0;
-    while(q.length){
-        let levelSize=q.length;
-        for(let i=0;i<levelSize;i++){
-            let current=q.shift();
-            i==0 && ans.push(current.val);
-            current.right && q.push(current.right);
-            current.left && q.push(current.left);
-        } 
-    }
+        function traverse(curr,level){
+            if(!curr) return
+            if(ans[level] == undefined) ans[level]=curr.val;
+            traverse(curr.right,level+1);
+            traverse(curr.left,level+1);
+        }
+    traverse(root,0);
     return ans
 };
