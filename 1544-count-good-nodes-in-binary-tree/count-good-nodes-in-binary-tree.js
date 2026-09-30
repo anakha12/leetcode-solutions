@@ -19,7 +19,7 @@ var goodNodes = function(root) {
             count++;
         }
         cur.left && traverse(cur.left,maxSeenSoFar);
-        cur .right && traverse(cur.right,maxSeenSoFar);
+        cur.right && traverse(cur.right,maxSeenSoFar);
     }
     traverse(root,root.val)
     return count
