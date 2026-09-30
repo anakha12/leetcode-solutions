@@ -13,7 +13,7 @@
  * @return {_Node}
  */
 var connect = function(root) {
-    if(!root) return null;
+    if(!root) return root;
     function traversal(curr){
         if(curr.left){
             curr.left.next=curr.right;
