@@ -11,11 +11,11 @@
  * @return {number}
  */
 var goodNodes = function(root) {
-    let count=0;
+    let count = 0;
     function traverse(cur,max){
         if(!cur) return
-        if(cur.val>=max){
-            max=cur.val;
+        if(cur.val >= max){
+            max = cur.val;
             count++;
         }
         traverse(cur.left,max);
