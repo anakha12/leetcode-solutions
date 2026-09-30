@@ -12,14 +12,14 @@
  */
 var goodNodes = function(root) {
     let count = 0;
-    function traverse(cur,max){
+    function traverse(cur,maxSeenSoFar){
         if(!cur) return
-        if(cur.val >= max){
-            max = cur.val;
+        if(cur.val >= maxSeenSoFar){
+            maxSeenSoFar = cur.val;
             count++;
         }
-        traverse(cur.left,max);
-        traverse(cur.right,max);
+        traverse(cur.left,maxSeenSoFar);
+        traverse(cur.right,maxSeenSoFar);
     }
     traverse(root,root.val)
     return count
