@@ -12,25 +12,11 @@
  * @return {TreeNode}
  */
 var insertIntoBST = function(root, val) {
-    const node=new TreeNode(val);
-    if(!root){
-        return node
-    }
-    let current=root;
-    while(true){
-        if(current.val>val){
-            if(!current.left){
-                current.left=node;
-                break
-            }
-            current=current.left;
-        }else{
-            if(!current.right){
-                current.right=node;
-                break
-            }
-            current=current.right;
-        }
+    if(!root) return new TreeNode(val)
+    if(root.val<val){
+        root.right=insertIntoBST(root.right,val)
+    }else{
+        root.left=insertIntoBST(root.left,val)
     }
     return root
 };
