@@ -13,10 +13,13 @@
 var isValidBST = function(root) {
     const validate=(node,min,max)=>{
         if(!node) return true
-        if(node.val<=min || node.val>=max) return false
 
-        return validate(node.left,min,node.val) && 
-                validate(node.right,node.val,max)
+        if(node.val<=min || node.val>=max) return false
+       let isLeftBst=validate(node.left,min,node.val);
+       let isRightBst=validate(node.right,node.val,max);
+
+      
+       return isLeftBst && isRightBst
     }
     return validate(root,-Infinity,+Infinity)
 };
