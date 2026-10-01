@@ -12,15 +12,15 @@
  * @return {TreeNode}
  */
 var searchBST = function(root, val) {
-    if(!root) return root
-    if(root.val==val) {
-        return root
+    let ans=null
+    const traverse=(node)=>{
+        if(node.val==val) ans=node;
+        if(node.val<val){
+            node.right && traverse(node.right)
+        }else{
+            node.left && traverse(node.left)
+        }
     }
-    if(val<root.val){
-        return searchBST(root.left,val)
-    }
-    if(val>root.val){
-        return searchBST(root.right,val)
-    }
-    
+     traverse(root)
+     return ans
 };
