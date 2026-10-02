@@ -15,11 +15,11 @@ var kthSmallest = function(root, k) {
     let ans=null;
     let count=0;
     const traversal=(node)=>{
+        if(ans) return
         node.left && traversal(node.left);
         count++;
         if(count==k){
             ans=node.val;
-            return
         } 
         node.right && traversal(node.right)
     }
